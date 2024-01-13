@@ -3,8 +3,8 @@ let menuIcon = document.querySelector('#menu-icon')
 let navbar = document.querySelector('.navbar')
 
 menuIcon.onclick = () => {
-    menuIcon.classList.toggle('bx-x');
-    navbar.classList.toggle('active');
+    menuIcon.classList.toggle('bx-x')
+    navbar.classList.toggle('active')
 }
 
 /* scroll section active link*/
@@ -12,7 +12,6 @@ let sections = document.querySelectorAll('section');
 let navLinks = document.querySelectorAll('header nav a');
 
 window.onscroll = () => {
-
     sections.forEach(sec => {
         let top = window.scrollY
         let offset = sec.offsetTop - 150;
@@ -26,17 +25,23 @@ window.onscroll = () => {
             })
         };
     });
-
-    /* sticky navbar */
-    let header = document.querySelector('.header');
-
-    header.classList.toggle('sticky', window.scrollY > 100)
 }
+/* sticky navbar */
+window.onscroll = () => {
+let header = document.querySelector('.header');
+
+header.classList.toggle('sticky', window.scrollY > 100)
 
 /* remove menu icon navbar when click navbar link (scroll) */
 
     menuIcon.classList.remove('bx-x');
     navbar.classList.remove('active');
+};
+
+/* remove menu icon navbar when click navbar link (scroll) */
+
+    menuIcon.classList.toggle('bx-x');
+    navbar.classList.toggle('active');
 
 /* swiper */
 var swiper = new Swiper(".mySwiper", {
@@ -54,36 +59,22 @@ var swiper = new Swiper(".mySwiper", {
 });
 
 
-const container = document.querySelector('.container');
 
-const cloneContainer = container.cloneNode(true);
-cloneContainer.id = 'dark-container';
-document.body.appendChild(cloneContainer);
-cloneContainer.classList.remove('active');
 
-const toggleIcons = document.querySelectorAll('.toggle-icon');
-const icons = document.querySelectorAll('.toggle-icon i');
-const darkContainer = document.querySelector('#dark-container');
 
-const darkContainerImg = document.querySelector('#dark-container .home-img img');
+/* swiper */
+var swiper = new Swiper(".mySwiper", {
+    slidesPerView: 1,
+    spaceBetween: 50,
+    loop: true,
+    pagination: {
+        el: ".swiper-pagination",
+        clickable: true,
+    },
+    navigation: {
+        nextEl: ".swiper-button-next",
+        prevEl: ".swiper-button-prev",
+    },
+});
 
-darkContainerImg.src = 'imgDark.png';
-
-toggleIcons.forEach(toggle => {
-    toggle.addEventListener('click', () => {
-
-        toggle.classList.add('disabled');
-        setTimeout(() => {
-            toggle.classList.remove('disabled');
-        }, 1500)
-
-        icons.forEach(icon => {
-            icon.classList.toggle('bx-sun')
-        });
-
-        container.classList.toggle('active');
-        darkContainer.classList.toggle('active');
-
-    })
-})
 
