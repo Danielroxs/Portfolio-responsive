@@ -589,6 +589,18 @@ span {
     margin: 12px 0;
 }
 
+.field .error-txt {
+    font-size: 1.4rem;
+    color: #d93025;
+    text-align: left;
+    margin: -5px 0 10px;
+    display: none;
+}
+
+form .textarea-field .error-txt {
+    margin-top: -1rem;
+}
+
 .contact form textarea {
     resize: none;
 }

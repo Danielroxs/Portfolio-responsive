@@ -94,3 +94,44 @@ ScrollReveal().reveal('.home-content, .heading', { origin: 'top' });
 ScrollReveal().reveal('.home-img img, .services-container, .portfolio-box, .testimonial-wrapper, .contact form', { origin: 'bottom' });
 ScrollReveal().reveal('.home-content h1, .about-img img', { origin: 'left' });
 ScrollReveal().reveal('.home-content h3, .home-content p, .about-content', { origin: 'right' });
+
+/* Email Code */
+
+const form = document.querySelector("form");
+
+const fullName = document.getElementById("name");
+const email = document.getElementById("email");
+const phone = document.getElementById("phone");
+const subject = document.getElementById("subject");
+const mess = document.getElementById("message");
+
+function sendEmail() {
+    const bodyMessage = `Full Name: ${fullName.value}<br> Email: ${email.value}<br> Phone Number: ${phone.value}<br> Message: ${mess.value}`
+
+    Email.send({
+        Host : "smtp.elasticemail.com",
+        Username : "danroxsll@gmail.com",
+        Password : "2EDCBA94950051F8A02F7B5A7D129A13DA50",
+        To : 'danroxsll@gmail.com',
+        From : "danroxsll@gmail.com",
+        Subject : subject.value,
+        Body : bodyMessage
+    }).then(
+      message => {
+        if (message == "OK") {
+            Swal.fire({
+                title: "Success!",
+                text: "Message sent successfully!",
+                icon: "success"
+              });
+        }
+      }
+    );
+}
+
+
+form.addEventListener("submit", (e) => {
+    e.preventDefault();
+
+    sendEmail();
+});
